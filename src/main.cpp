@@ -52,10 +52,8 @@ uint32_t minLoopTime = UINT32_MAX;
 uint32_t maxLoopTime = 0;
 uint32_t loopCount = 0;
 
-// Флаг, который устанавливается в ISR
 volatile bool buttonPressed = false;
 
-// Обработчик прерывания
 void IRAM_ATTR buttonISR() {
     buttonPressed = true;
 }
@@ -147,7 +145,6 @@ void loop() {
             (unsigned long)maxLoopTime
         );
 
-        // Сбрасываем статистику
         totalLoopTime = 0;
         loopCount = 0;
         minLoopTime = UINT32_MAX;
